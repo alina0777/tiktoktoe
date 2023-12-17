@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<Co
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,105 +7,106 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <ImageView
+        android:id="@+id/background_gameView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        app:srcCompat="@drawable/start_menu_background" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-<TextView
-    android:id="@+id/statusText"
-    android:layout_height="250px"
-    android:layout_width="match_parent"
-    android:textSize="40dp"
-    android:text="Ходят крестики"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <TextView
-        android:id="@+id/statusText2"
+        android:id="@+id/statusText"
         android:layout_height="250px"
         android:layout_width="match_parent"
         android:textSize="40dp"
-        android:text="Победитель"/>
+        android:text="Ходят крестики"/>
 
-    <TableLayout
-        android:id="@+id/gameTable"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        <TextView
+            android:id="@+id/statusText2"
+            android:layout_height="250px"
+            android:layout_width="match_parent"
+            android:textSize="40dp"
+            android:text="Победитель"/>
 
-        <TableRow>
-            <Button
-                android:transitionName="1_1"
-                android:onClick="onGameClick"
+        <TableLayout
+            android:id="@+id/gameTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-                android:text=""
-                android:textSize="30dp"
-                android:padding="3dip" />
-            <Button
-                android:transitionName="1_2"                android:text=""
-                android:onClick="onGameClick"
+            <TableRow>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="1_1"
+                    android:onClick="onGameClick"
 
-                android:textSize="30dp"
-                android:padding="3dip" />
+                    android:text=""
+                    android:textSize="30dp"
+                    android:padding="3dip" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="1_2"                android:text=""
+                    android:onClick="onGameClick"
 
-            <Button
-                android:transitionName="1_3"                 android:text=""
-                android:onClick="onGameClick"
+                    android:textSize="30dp"
+                    android:padding="3dip" />
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-        </TableRow>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="1_3"                 android:text=""
+                    android:onClick="onGameClick"
 
-        <TableRow>
-            <Button
-                android:transitionName="2_1"                 android:text=""
+                    android:textSize="30dp"
+                    android:padding="3dip" />
+            </TableRow>
 
-                android:onClick="onGameClick"
+            <TableRow>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="2_1"                 android:text=""
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-            <Button
-                android:transitionName="2_2"                 android:text=""
+                    android:onClick="onGameClick"
 
-                android:onClick="onGameClick"
+                    android:textSize="30dp"
+                    android:padding="3dip" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="2_2"                 android:text=""
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-            <Button
-                android:transitionName="2_3"                 android:text=""
+                    android:onClick="onGameClick"
 
-                android:onClick="onGameClick"
+                    android:textSize="30dp"
+                    android:padding="3dip" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="2_3"                 android:text=""
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-        </TableRow>
-        <TableRow>
-            <Button
-                android:transitionName="3_1"                 android:text=""
-                android:onClick="onGameClick"
+                    android:onClick="onGameClick"
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-            <Button
-                android:transitionName="3_2"                 android:text=""
-                android:onClick="onGameClick"
+                    android:textSize="30dp"
+                    android:padding="3dip" />
+            </TableRow>
+            <TableRow>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="3_1"                 android:text=""
+                    android:onClick="onGameClick"
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-            <Button
-                android:transitionName="3_3"                 android:text=""
-                android:onClick="onGameClick"
+                    android:textSize="30dp"
+                    android:padding="3dip" />
 
-                android:textSize="30dp"
-                android:padding="3dip" />
-        </TableRow>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="3_2"                 android:text=""
+                    android:onClick="onGameClick"
 
-    </TableLayout>
+                    android:textSize="30dp"
+                    android:padding="3dip" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:transitionName="3_3"                 android:text=""
+                    android:onClick="onGameClick"
 
-</LinearLayout>
+                    android:textSize="30dp"
+                    android:padding="3dip" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</Co>
