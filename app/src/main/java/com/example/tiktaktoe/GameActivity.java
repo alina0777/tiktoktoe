@@ -2,7 +2,9 @@ package com.example.tiktaktoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
+    SoundManager soundManager;
 
     Context context ;
     boolean player1_player2 = true;
@@ -28,6 +31,7 @@ public class GameActivity extends AppCompatActivity {
     TextView statusText;
     TextView statusText2;
 
+    private Button back_to_menu_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,26 +39,38 @@ public class GameActivity extends AppCompatActivity {
 
         context = getApplicationContext();
         statusText = findViewById(R.id.statusText);
+
+        soundManager = new SoundManager(getApplicationContext(), R.raw.button_sound);
+
         statusText2 = findViewById(R.id.statusText2);
 
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[0]));
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[1]));
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[2]));
 
-        TableLayout gameTable = findViewById(R.id.gameTable);
+        back_to_menu_button = findViewById(R.id.button_back_to_menu);
+        back_to_menu_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                soundManager.play();
+
+                Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                setResult (Activity.RESULT_OK, intent);
+                startActivityForResult(intent,101);
+                onNewIntent (intent);
+                finish();
+            }
+        });
 
     }
 
     public void onGameClick(View view)
     {
-        // выводим сообщение
-
+        // Выводим сообщение
 
         Button button = (Button) view;
         String str = view.getTransitionName();
-
-        Toast.makeText(this, "Зачем вы нажали?" + str, Toast.LENGTH_SHORT).show();
-
         String value = "";
 
         if (player1_player2 == true) {
@@ -64,10 +80,6 @@ public class GameActivity extends AppCompatActivity {
         }
 
         button.setText(value);
-
-        System.out.println("xxx == " +str.charAt(0));
-        System.out.println("yyy == " +str.charAt(str.length()-1));
-
 
         initMainArray( Character.getNumericValue(str.charAt(0)),        // init X
                 Character.getNumericValue(str.charAt(str.length()-1)),  // init Y
@@ -86,6 +98,7 @@ public class GameActivity extends AppCompatActivity {
 
     public String checkWinner(int x, int y, String value) {
         System.out.println("checkWinner");
+
         System.out.println("using = " + value);
 
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[0]));
@@ -133,7 +146,7 @@ public class GameActivity extends AppCompatActivity {
         //Проверка по диагонали
 
         System.out.println("Проверка основной диагонали");
-//
+
         countWin_X = 0;
         countWin_0 = 0;
 
@@ -192,8 +205,6 @@ public class GameActivity extends AppCompatActivity {
 
         System.out.println("X = " +  String.valueOf(x));
         System.out.println("Y = " +  String.valueOf(y));
-
-
 
         mainArray[x-1][y-1] = value;
 

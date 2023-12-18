@@ -11,102 +11,208 @@
         android:id="@+id/background_gameView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/start_menu_background" />
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:shrinkColumns="true">
 
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_height="250px"
-        android:layout_width="match_parent"
-        android:textSize="40dp"
-        android:text="Ходят крестики"/>
+        <TableRow android:weightSum="100"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="93"
+                android:text="Ходят крестики"
+                android:gravity="top"
+                android:textIsSelectable="true"
+                android:textSize="35dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_back_to_menu"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="7"
+                android:background="@drawable/button_stroke_black95_press_white"
+
+
+                android:text="@string/menu" />
+
+        </TableRow>
+
+
 
         <TextView
             android:id="@+id/statusText2"
-            android:layout_height="250px"
+            android:layout_height="100px"
             android:layout_width="match_parent"
             android:textSize="40dp"
-            android:text="Победитель"/>
+            android:text=""
+            android:layout_weight="10"
+            android:layout_marginLeft="5dp"/>
 
         <TableLayout
             android:id="@+id/gameTable"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="50"
+            android:weightSum="100">
 
-            <TableRow>
+            <TableRow
+                android:weightSum="100"
+                android:layout_weight="33">
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="1_1"
-                    android:onClick="onGameClick"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
 
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:background="@drawable/button_stroke_black50_press_white"
+                    android:onClick="onGameClick"
                     android:text=""
-                    android:textSize="30dp"
-                    android:padding="3dip" />
-                <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="1_2"                android:text=""
-                    android:onClick="onGameClick"
-
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:textSize="60dp"
+                    android:transitionName="1_1"
+                    android:layout_weight="33"/>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="1_3"                 android:text=""
-                    android:onClick="onGameClick"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
 
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:transitionName="1_2"
+                    android:text=""
+                    android:onClick="onGameClick"
+                    android:textSize="60dp"
+                    android:layout_weight="33"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:transitionName="1_3"
+                    android:text=""
+                    android:onClick="onGameClick"
+                    android:layout_weight="33"
+                    android:textSize="60dp"/>
             </TableRow>
 
-            <TableRow>
+            <TableRow
+                android:weightSum="100"
+                android:layout_weight="33">
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="2_1"                 android:text=""
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
 
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:transitionName="2_1"
+                    android:text=""
                     android:onClick="onGameClick"
-
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:textSize="60dp"
+                    android:padding="3dip"
+                    android:layout_weight="33"
+                    />
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="2_2"                 android:text=""
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
 
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:transitionName="2_2"
+                    android:text=""
                     android:onClick="onGameClick"
-
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:textSize="60dp"
+                    android:layout_weight="33"
+                    />
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="2_3"                 android:text=""
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
 
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:transitionName="2_3"
+                    android:text=""
                     android:onClick="onGameClick"
-
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:textSize="60dp"
+                    android:layout_weight="33"
+                    />
             </TableRow>
-            <TableRow>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="3_1"                 android:text=""
-                    android:onClick="onGameClick"
 
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+            <TableRow android:weightSum="100"
+                android:layout_weight="33">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="3_2"                 android:text=""
-                    android:onClick="onGameClick"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
 
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:onClick="onGameClick"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textSize="60dp"
+                    android:transitionName="3_1"
+                    android:layout_weight="33"/>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:transitionName="3_3"                 android:text=""
-                    android:onClick="onGameClick"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
 
-                    android:textSize="30dp"
-                    android:padding="3dip" />
+                    android:transitionName="3_2"
+                    android:text=""
+                    android:onClick="onGameClick"
+                    android:textSize="60dp"
+                    android:layout_weight="33"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_stroke_black50_press_white"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:transitionName="3_3"
+                    android:text=""
+                    android:onClick="onGameClick"
+                    android:textSize="60dp"
+                    android:layout_weight="33"/>
             </TableRow>
         </TableLayout>
-    </LinearLayout>
+    </TableLayout>
 
 </RelativeLayout>

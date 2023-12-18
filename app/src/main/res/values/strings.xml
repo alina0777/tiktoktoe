@@ -2,6 +2,8 @@
     <string name="app_name">tiktaktoe</string>
     <string name="title_activity_game_view">tiktaktoe</string>
     <string name="start">Начать</string>
+    <string name="menu">Меню</string>
+    <string name="back">Назад</string>
 
 
 
