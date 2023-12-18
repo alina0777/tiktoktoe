@@ -21,44 +21,38 @@
         android:weightSum="100"
         android:shrinkColumns="true">
 
-        <TableRow android:weightSum="100"
-            android:layout_weight="10">
+        <TableRow
+            android:id="@+id/head_row"
+            android:weightSum="100"
+            android:layout_weight="10"
+            android:layout_width="match_parent">
 
-            <TextView
-                android:id="@+id/statusText"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:layout_weight="93"
-                android:text="Ходят крестики"
-                android:gravity="top"
-                android:textIsSelectable="true"
-                android:textSize="35dp"
-                android:layout_marginRight="10dp"
-                />
+                android:layout_weight="100">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_back_to_menu"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="7"
-                android:background="@drawable/button_stroke_black95_press_white"
-
-
-                android:text="@string/menu" />
-
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_back_to_menu"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/button_stroke_black95_press_white"
+                    android:text="@string/menu" />
+            </RelativeLayout>
         </TableRow>
 
-
-
         <TextView
-            android:id="@+id/statusText2"
+            android:id="@+id/statusText"
             android:layout_height="100px"
             android:layout_width="match_parent"
             android:textSize="40dp"
-            android:text=""
+            android:text="Ходят крестики"
             android:layout_weight="10"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"/>
 
         <TableLayout
             android:id="@+id/gameTable"

@@ -14,10 +14,11 @@ public class SoundManager {
 
     public void createMediaRecorder(Context context, int resid) {
         mPlayer = MediaPlayer.create(context, resid);
-        
+
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
+
                 stopPlay();
             }
         });

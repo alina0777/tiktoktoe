@@ -42,8 +42,6 @@ public class GameActivity extends AppCompatActivity {
 
         soundManager = new SoundManager(getApplicationContext(), R.raw.button_sound);
 
-        statusText2 = findViewById(R.id.statusText2);
-
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[0]));
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[1]));
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[2]));
@@ -91,15 +89,13 @@ public class GameActivity extends AppCompatActivity {
                 Character.getNumericValue(str.charAt(str.length()-1)),  // init Y
                 value);
 
-        statusText2.setText(result);
+        statusText.setText(result);
 
         player1_player2 = changePlayerStatus(player1_player2);
     }
 
     public String checkWinner(int x, int y, String value) {
         System.out.println("checkWinner");
-
-        System.out.println("using = " + value);
 
         System.out.println("mainArray [0]: "  + Arrays.toString(mainArray[0]));
         System.out.println("mainArray [1]: "  + Arrays.toString(mainArray[1]));
