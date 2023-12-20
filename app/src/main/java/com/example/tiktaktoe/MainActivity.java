@@ -47,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                soundManager.play();
+                soundManager.play(targetSound);
 
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                intent.putExtra("property", "");
+                intent.putExtra("targetSound", targetSound);
+                intent.putExtra("targetChatGPT", targetChatGPT);
                 setResult(Activity.RESULT_OK, intent);
                 startActivityForResult(intent,101);
                 onNewIntent (intent);
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         soundSettingBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                targetSound=!targetSound;
 
                 if (targetSound) {
                     soundSettingBottom.setImageResource( R.drawable.on_sound_button);
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     soundSettingBottom.setImageResource( R.drawable.off_sound_button);
                 }
 
-                targetSound=!targetSound;
+
             }
         });
 

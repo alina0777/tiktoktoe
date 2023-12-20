@@ -24,18 +24,18 @@ public class SoundManager {
         });
     }
 
-    public void play(){
-        mPlayer.start();
-//        buttonStart.setEnabled(false);
+    public void play(boolean targetSound){
+        if (targetSound){
+            mPlayer.start();
+        }
+
     }
 
     private void stopPlay() {
         mPlayer.stop();
-//        buttonStart.setEnabled(false);
         try {
             mPlayer.prepare();
             mPlayer.seekTo(0);
-//            buttonStart.setEnabled(true);
         } catch (Throwable t) {
             return;
         }
@@ -43,9 +43,9 @@ public class SoundManager {
 
     public void pause(View view) {
         mPlayer.pause();
-//        buttonStart.setEnabled(true);
     }
     public void stop(View view) {
+
         stopPlay();
     }
 

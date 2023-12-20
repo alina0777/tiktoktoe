@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,9 @@ public class GameActivity extends AppCompatActivity {
                                 {"_","_","_"}   };
 
     TextView statusText;
-    TextView statusText2;
+    TableLayout gameTableLayout;
+    boolean targetSound;
+    boolean targetChatGPT;
 
     private Button back_to_menu_button;
     @Override
@@ -37,7 +40,15 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+
+            targetSound = extras.getBoolean("targetSound");
+            targetChatGPT = extras.getBoolean("targetChatGPT");
+        }
+
         context = getApplicationContext();
+        gameTableLayout = findViewById(R.id.gameTable);
         statusText = findViewById(R.id.statusText);
 
         soundManager = new SoundManager(getApplicationContext(), R.raw.button_sound);
@@ -51,7 +62,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                soundManager.play();
+                soundManager.play(targetSound);
 
                 Intent intent = new Intent(GameActivity.this, MainActivity.class);
                 setResult (Activity.RESULT_OK, intent);
@@ -89,9 +100,21 @@ public class GameActivity extends AppCompatActivity {
                 Character.getNumericValue(str.charAt(str.length()-1)),  // init Y
                 value);
 
-        statusText.setText(result);
+        if (!result.equals(""))
+        {
+            statusText.setTextColor(Color.RED);
+            statusText.setText(result);
 
-        player1_player2 = changePlayerStatus(player1_player2);
+            gameTableLayout.setColumnShrinkable(0, true);
+
+            CustomDialogFragment dialog = new CustomDialogFragment();
+            dialog.show(getSupportFragmentManager(), "custom");
+
+        } else {
+            player1_player2 = changePlayerStatus(player1_player2);
+        }
+
+
     }
 
     public String checkWinner(int x, int y, String value) {
@@ -167,7 +190,6 @@ public class GameActivity extends AppCompatActivity {
         } else if (countWin_0 == 3){
             return "Выиграли Нолики";
         }
-
 
         //Проверка по обратной диагонали
         System.out.println("Проверка обратной диагонали");
