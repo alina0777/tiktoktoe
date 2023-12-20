@@ -1,5 +1,5 @@
 # tiktoktoe
-В репозитории представлена игра "Крестики-Нолики" на Java для Andoid c двумя режимами игры:
-1. Друг против друга
-2. И против ChatGPT
+В репозитории представлена игра "Крестики-Нолики" на Java для Andoid 
 
+
+![Image alt](https://github.com/{alina0777}/{tiktoktoe}/raw/{main}/{path}/screen_1.jpg)
