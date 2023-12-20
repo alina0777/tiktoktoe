@@ -13,12 +13,18 @@ import androidx.annotation.NonNull;
 
 public class CustomDialogFragment extends DialogFragment {
 
+    String winner = "";
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            winner = bundle.getString("winner");
+        }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         return builder
-                .setTitle("Выйграли Крестики")
+                .setTitle(winner)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setMessage("Игра окончена")
                 .setPositiveButton("Начать сначала", new DialogInterface.OnClickListener() {

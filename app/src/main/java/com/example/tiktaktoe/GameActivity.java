@@ -108,6 +108,11 @@ public class GameActivity extends AppCompatActivity {
             gameTableLayout.setColumnShrinkable(0, true);
 
             CustomDialogFragment dialog = new CustomDialogFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("winner", result);
+            dialog.setArguments(bundle);
+
             dialog.show(getSupportFragmentManager(), "custom");
 
         } else {
@@ -187,7 +192,7 @@ public class GameActivity extends AppCompatActivity {
 
         if (countWin_X == 3) {
             return "Выиграли Крестики";
-        } else if (countWin_0 == 3){
+        } else if (countWin_0 == 3) {
             return "Выиграли Нолики";
         }
 
