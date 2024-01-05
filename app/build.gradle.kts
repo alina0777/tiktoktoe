@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tiktaktoe"
+    namespace = "com.game.tiktaktoe"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.tiktaktoe"
+        applicationId = "com.game.tiktaktoe"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
